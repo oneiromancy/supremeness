@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.component';
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component';
 
 const ShopPage = ({ match }) => {
@@ -10,7 +10,7 @@ const ShopPage = ({ match }) => {
             <Route
                 exact
                 path={`${match.path}`}
-                component={CollectionsOverviewContainer}
+                component={CollectionsOverview}
             />
             <Route
                 path={`${match.path}/:collectionId`}
