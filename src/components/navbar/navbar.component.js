@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './navbar.styles.scss';
 
 // This is a special syntax in React for importing SVG
-import { ReactComponent as Logo } from '../../logo.svg';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import CompanyLogo from '../../assets/icons/company-logo.png';
 
 const Navbar = () => {
     const currentUser = false;
@@ -13,8 +13,8 @@ const Navbar = () => {
 
     return (
         <div className="navbar-container">
-            <Link className="logo-container" to="/">
-                <Logo className="logo" />
+            <Link to="/">
+                <img className="logo-icon" src={CompanyLogo} />
             </Link>
             <div className="options-container">
                 <Link className="option-link" to="/shop">

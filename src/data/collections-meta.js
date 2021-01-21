@@ -1,32 +1,38 @@
+import Hats from '../assets/images/hats.jpg';
+import Jackets from '../assets/images/jackets.jpg';
+import Sneakers from '../assets/images/sneakers.jpg';
+import Women from '../assets/images/women.jpg';
+import Men from '../assets/images/men.jpg';
+
 export default [
     {
         title: 'hats',
-        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+        imageUrl: Hats,
         id: 1,
         linkUrl: 'shop/hats',
     },
     {
         title: 'jackets',
-        imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+        imageUrl: Jackets,
         id: 2,
         linkUrl: 'shop/jackets',
     },
     {
         title: 'sneakers',
-        imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+        imageUrl: Sneakers,
         id: 3,
         linkUrl: 'shop/sneakers',
     },
     {
         title: 'womens',
-        imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+        imageUrl: Women,
         size: 'large',
         id: 4,
         linkUrl: 'shop/womens',
     },
     {
         title: 'mens',
-        imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+        imageUrl: Men,
         size: 'large',
         id: 5,
         linkUrl: 'shop/mens',
