@@ -4,9 +4,12 @@ import './navbar.styles.scss';
 
 // This is a special syntax in React for importing SVG
 import { ReactComponent as Logo } from '../../logo.svg';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 const Navbar = () => {
     const currentUser = false;
+    let hidden = true;
 
     return (
         <div className="navbar-container">
@@ -27,9 +30,9 @@ const Navbar = () => {
                         SIGN IN
                     </Link>
                 )}
-                {/* <CartIcon /> */}
+                <CartIcon />
             </div>
-            {/* {!hidden && <CartDropdown />} */}
+            {!hidden && <CartDropdown />}
         </div>
     );
 };
