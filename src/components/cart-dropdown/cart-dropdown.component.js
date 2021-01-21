@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './cart-dropdown.styles.scss';
 
-import Button from '../button/button.component';
+import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 const CartDropdown = () => {
@@ -21,13 +21,13 @@ const CartDropdown = () => {
                     <span className="empty-message">Your cart is empty</span>
                 )}
             </div>
-            <Button
+            <CustomButton
                 onClick={() => {
                     history.push('/checkout');
                 }}
             >
                 GO TO CHECKOUT
-            </Button>
+            </CustomButton>
         </div>
     );
 };
