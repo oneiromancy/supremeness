@@ -1,25 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './checkout.styles.scss';
+
+import {
+    selectCartItems,
+    selectCartTotal,
+} from '../../redux/cart/cart.selectors';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 const CheckoutPage = () => {
-    const cartItems = [
-        {
-            price: 25,
-            id: 1,
-            name: 'Brown Brim',
-            imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
-        },
-        {
-            imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
-            id: 2,
-            name: 'Blue Beanie',
-            price: 18,
-        },
-    ];
-
-    const total = cartItems.reduce((prev, curr) => prev.price + curr.price);
+    const cartItems = useSelector(selectCartItems);
+    const total = useSelector(selectCartTotal);
 
     return (
         <div className="checkout-page">
