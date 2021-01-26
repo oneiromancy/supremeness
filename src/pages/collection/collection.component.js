@@ -1,17 +1,24 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './collection.styles.scss';
 
-import collections from '../../data/collections-products';
+import {
+    selectCollection,
+    selectIsCollectionsLoaded,
+} from '../../redux/shop/shop.selectors';
+
 import CollectionItem from '../../components/collection-item/collection-item.component';
+import Spinner from '../../components/spinner/spinner.component';
 
 const CollectionPage = () => {
     const { collectionId } = useParams();
-    const collection = collections.find((item) => {
-        if (collectionId === item.routeName) {
-            return item;
-        }
-    });
+    const collection = useSelector(selectCollection(collectionId));
+    const isContentLoaded = useSelector(selectIsCollectionsLoaded);
+
+    if (!isContentLoaded) {
+        return <Spinner />;
+    }
 
     const { title, items } = collection;
 
