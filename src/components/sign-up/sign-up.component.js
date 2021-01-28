@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './sign-up.styles.scss';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { signUpStart, signUpFailure } from '../../redux/user/user.actions';
+import { selectSignUpError } from '../../redux/user/user.selectors';
+
 const SignUp = () => {
-    const signUpError = false;
+    const signUpError = useSelector(selectSignUpError);
+    const dispatch = useDispatch();
+
     const [formValues, setFormValues] = useState({
         displayName: '',
         email: '',
@@ -17,6 +23,12 @@ const SignUp = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (password !== confirmPassword) {
+            dispatch(signUpFailure("Passwords don't match"));
+        } else {
+            dispatch(signUpStart({ email, password, displayName }));
+        }
     };
 
     const handleChange = (event) => {
@@ -28,7 +40,7 @@ const SignUp = () => {
     return (
         <div className="sign-up">
             <h2 className="title">I do not have an account</h2>
-            <span>Sign up with your email and password</span>
+            <span>sign up with your email and password</span>
             {signUpError && (
                 <span className="error-message">Error: {signUpError}</span>
             )}
