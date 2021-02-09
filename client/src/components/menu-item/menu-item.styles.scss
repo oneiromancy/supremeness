@@ -26,6 +26,10 @@
         height: 380px;
     }
 
+    @media screen and (max-width: 800px) {
+        max-height: 200px;
+    }
+
     &:first-child {
         margin-right: 7.5px;
     }
