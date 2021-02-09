@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './navbar.styles.scss';
 
-// This is a special syntax in React for importing SVG
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import CompanyLogo from '../../assets/icons/company-logo.png';
 
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { signOutStart } from '../../redux/user/user.actions';
 
 const Navbar = () => {
-    const currentUser = false;
+    const dispatch = useDispatch();
+    const currentUser = useSelector(selectCurrentUser);
     const hidden = useSelector(selectCartHidden);
 
     return (
@@ -27,7 +29,12 @@ const Navbar = () => {
                     CONTACT
                 </Link>
                 {currentUser ? (
-                    <Link className="option-link">SIGN OUT</Link>
+                    <Link
+                        className="option-link"
+                        onClick={() => dispatch(signOutStart())}
+                    >
+                        SIGN OUT
+                    </Link>
                 ) : (
                     <Link className="option-link" to="/signin">
                         SIGN IN
